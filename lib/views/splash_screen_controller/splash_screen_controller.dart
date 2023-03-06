@@ -22,7 +22,6 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(const Duration(seconds: 3), () {
-      debugPrint("loading the app");
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -42,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: AppColors.white,
+        color: AppColors.amberorange,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -17,6 +17,10 @@ class AppColors {
   static Color shyiris = const Color(0xfff0efee);
   static Color amberorange = const Color(0xffffbf00);
 
+  static Color transamberorange = const Color.fromARGB(221, 241, 194, 52);
+
+  static Color circularBtnBackColor = const Color.fromARGB(255, 217, 196, 35);
+
   static Color flintblack = const Color(0xff3c4544);
   static Color flintblacklow = const Color(0xff4f5756);
 

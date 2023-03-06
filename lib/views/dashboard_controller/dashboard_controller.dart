@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:list_view_project/views/colors/colors_controller.dart';
+import 'package:list_view_project/views/second_controller/second_controller.dart';
 import 'package:list_view_project/widgets/counter_controller.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -29,22 +30,45 @@ class _DashboardScreenState extends State<DashboardScreen> {
         // toolbarHeight: 20,
         elevation: 0,
         backgroundColor: AppColors.amberorange,
+        // backgroundColor: AppColors.blackBackColor,
         title: SizedBox(
-          child: TextButton(
-            onPressed: () {
-              showModalBottomSheet(
-                backgroundColor: AppColors.transparent,
-                barrierColor: AppColors.transparent,
-                context: context,
-                builder: (context) => const Image(
-                  // height: 200,
-                  image: AssetImage('images/task.png'),
+          child: Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      backgroundColor: AppColors.transparent,
+                      barrierColor: AppColors.transamberorange,
+                      context: context,
+                      builder: (context) => const Image(
+                        // height: 200,
+                        image: AssetImage('images/task.png'),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Documentation?',
+                    style: TextStyle(color: AppColors.darkopacity, fontSize: 8),
+                  ),
                 ),
-              );
-            },
-            child: Text(
-              'Documentation?',
-              style: TextStyle(color: AppColors.darkopacity, fontSize: 8),
+                TextButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      backgroundColor: AppColors.transparent,
+                      barrierColor: AppColors.transamberorange,
+                      context: context,
+                      builder: (context) => const CounterAppManager(),
+                    );
+                  },
+                  child: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                    size: 20,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -55,18 +79,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
+            alignment: Alignment.center,
             margin: const EdgeInsets.only(top: 0),
             // color: Colors.amber,
             child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+              scrollDirection: Axis.vertical,
+              child: Column(
                 children: [
                   //incremetation container
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: CounterWidgetController(
                       number: temp,
-                      textColor: AppColors.amberorange,
+                      textColor: AppColors.white,
                       fontSize: 38,
                       fontWeight: FontWeight.w500,
                     ),
@@ -76,7 +101,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: CounterWidgetController(
                         number: decrement,
-                        textColor: AppColors.amberorange,
+                        textColor: AppColors.white,
                         fontSize: 38,
                         fontWeight: FontWeight.w500),
                   ),
@@ -85,15 +110,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: CounterWidgetController(
                         number: resetTemp,
-                        textColor: AppColors.amberorange,
-                        fontSize: 38,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CounterWidgetController(
-                        number: increment2,
-                        textColor: AppColors.amberorange,
+                        textColor: AppColors.white,
                         fontSize: 38,
                         fontWeight: FontWeight.w500),
                   ),
@@ -214,24 +231,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 splashColor: AppColors.blackopacity,
                 foregroundColor: Colors.white,
                 child: const Icon(Icons.refresh),
-              ),
-            ),
-
-            //add multiple counters
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child: FloatingActionButton(
-                onPressed: () {
-                  //code body
-                  setState(() {
-                    increment2++;
-                  });
-                },
-                heroTag: "addMoreCounter",
-                backgroundColor: AppColors.blackBackColor,
-                splashColor: AppColors.blackopacity,
-                foregroundColor: Colors.white,
-                child: const Icon(Icons.add),
               ),
             ),
           ],

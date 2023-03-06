@@ -22,7 +22,7 @@ class CounterWidgetController extends StatelessWidget {
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.transamberorange,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Padding(
