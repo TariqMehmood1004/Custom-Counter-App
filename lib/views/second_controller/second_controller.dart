@@ -4,7 +4,6 @@
 //dummy code
 import 'package:flutter/material.dart';
 import 'package:list_view_project/views/colors/colors_controller.dart';
-import 'package:list_view_project/views/dashboard_controller/dashboard_controller.dart';
 
 //
 //
