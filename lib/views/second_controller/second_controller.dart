@@ -3,11 +3,9 @@
 //
 //dummy code
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:list_view_project/views/colors/colors_controller.dart';
 
-//
-//
-//
 //dummy code
 class CounterAppManager extends StatelessWidget {
   const CounterAppManager({super.key});
@@ -29,7 +27,30 @@ class CounterWidget extends StatefulWidget {
 }
 
 class _CounterWidgetState extends State<CounterWidget> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
+  }
+
   final List<int> _counters = [0];
+
+  void showSnackBar(String msg) {
+    final snackBar = SnackBar(
+      backgroundColor: AppColors.vivacious,
+      content: Text('Yay! ${msg.toString()}'),
+      action: SnackBarAction(
+        label: 'Ok',
+        textColor: AppColors.white,
+        onPressed: () {
+          // Some code to undo the change.
+        },
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   void _incrementCounter(int index) {
     setState(() {
@@ -37,16 +58,7 @@ class _CounterWidgetState extends State<CounterWidget> {
         _counters[index]++;
       }
       _counters[index]++;
-      final snackBar = SnackBar(
-        content: const Text('Yay! Incrementation...'),
-        action: SnackBarAction(
-          label: 'Ok',
-          onPressed: () {
-            // Some code to undo the change.
-          },
-        ),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      showSnackBar("Incrementations");
     });
   }
 
@@ -56,32 +68,14 @@ class _CounterWidgetState extends State<CounterWidget> {
       if (_counters[index] < 0) {
         _counters[index] = 0;
       }
-      final snackBar = SnackBar(
-        content: const Text('Yay! Decrementation'),
-        action: SnackBarAction(
-          label: 'Ok',
-          onPressed: () {
-            // Some code to undo the change.
-          },
-        ),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      showSnackBar("Decrementations");
     });
   }
 
   void _addCounter() {
     setState(() {
       _counters.add(0);
-      final snackBar = SnackBar(
-        content: const Text('Yay! add one more widget counter for your app.'),
-        action: SnackBarAction(
-          label: 'Ok',
-          onPressed: () {
-            // Some code to undo the change.
-          },
-        ),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      showSnackBar("Added one more counter widget.");
     });
   }
 
@@ -90,16 +84,7 @@ class _CounterWidgetState extends State<CounterWidget> {
       for (var i = 0; i < _counters.length; i++) {
         _counters[i] = 0;
       }
-      final snackBar = SnackBar(
-        content: const Text('hurrah! You have been reset all the counters.'),
-        action: SnackBarAction(
-          label: 'Ok',
-          onPressed: () {
-            // Some code to undo the change.
-          },
-        ),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      showSnackBar("You have reset all the counters.");
     });
   }
 

@@ -15,10 +15,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ));
-
     super.initState();
 
     Timer(const Duration(seconds: 3), () {
@@ -30,6 +26,11 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       );
     });
+
+    // Set the status bar to transparent
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.amber,
+    ));
   }
 
   bool isLoading = false;

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:list_view_project/views/colors/colors_controller.dart';
 import 'package:list_view_project/views/second_controller/second_controller.dart';
@@ -22,6 +24,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   int addNumber = 0;
   bool isAddPress = false;
+
+  void showSnackBar({String msg = "message"}) {
+    final snackBar = SnackBar(
+      backgroundColor: AppColors.vivacious,
+      content: Text('Yay! ${msg.toString()}'),
+      action: SnackBarAction(
+        label: 'Ok',
+        textColor: AppColors.white,
+        onPressed: () {
+          // Some code to undo the change.
+        },
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,21 +68,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: Text(
                     'Documentation?',
                     style: TextStyle(color: AppColors.darkopacity, fontSize: 8),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    showModalBottomSheet(
-                      backgroundColor: AppColors.transparent,
-                      barrierColor: AppColors.transamberorange,
-                      context: context,
-                      builder: (context) => const CounterAppManager(),
-                    );
-                  },
-                  child: const Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.black,
-                    size: 20,
                   ),
                 ),
               ],
@@ -106,14 +108,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                   //3rd container
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CounterWidgetController(
-                        number: resetTemp,
-                        textColor: AppColors.white,
-                        fontSize: 38,
-                        fontWeight: FontWeight.w500),
-                  ),
                 ],
               ),
             ),
@@ -140,36 +134,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       decrement = 0;
                       saves = 0;
 
-                      //snackbar for less than zero error
-                      final snackBar = SnackBar(
-                        content: const Text(
-                            'Sorry! You can\'t decrement less than zero.'),
-                        action: SnackBarAction(
-                          label: 'Ok',
-                          onPressed: () {
-                            // Some code to undo the change.
-                          },
-                        ),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      showSnackBar(msg: "You cannot decrement less than zero.");
                     } else {
-                      final snackBar = SnackBar(
-                        content: const Text('Yay! Decrementation'),
-                        action: SnackBarAction(
-                          label: 'Ok',
-                          onPressed: () {
-                            // Some code to undo the change.
-                          },
-                        ),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      showSnackBar(msg: "Decrementation");
                     }
                   });
                 },
                 heroTag: "minus",
                 backgroundColor: AppColors.white,
-                splashColor: AppColors.vivacious,
-                foregroundColor: Colors.black,
+                foregroundColor: AppColors.amberorange,
                 child: const Text(
                   "-",
                   style: TextStyle(fontSize: 35),
@@ -187,19 +160,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     saves = temp;
                     saves++;
 
-                    final snackBar = SnackBar(
-                      content: const Text('Yay! Incrementation'),
-                      action: SnackBarAction(
-                        label: 'Ok',
-                        onPressed: () {},
-                      ),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    showSnackBar(msg: "Incrementation");
                   });
                 },
                 backgroundColor: AppColors.white,
-                splashColor: AppColors.vivacious,
-                foregroundColor: Colors.black,
+                foregroundColor: AppColors.amberorange,
                 child: const Icon(Icons.add),
               ),
             ),
@@ -214,23 +179,43 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     decrement = 0;
                     increment = 0;
                     increment2 = 0;
-                    final snackBar = SnackBar(
-                      content: const Text('Yay! Reset'),
-                      action: SnackBarAction(
-                        label: 'Ok',
-                        onPressed: () {
-                          // Some code to undo the change.
-                        },
-                      ),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    showSnackBar(msg: "Reseted counters.");
                   });
                 },
                 heroTag: "Reset",
-                backgroundColor: AppColors.blackBackColor,
-                splashColor: AppColors.blackopacity,
-                foregroundColor: Colors.white,
+                backgroundColor: AppColors.white,
+                foregroundColor: AppColors.amberorange,
                 child: const Icon(Icons.refresh),
+              ),
+            ),
+            Container(
+              width: 55,
+              height: 55,
+              decoration: BoxDecoration(
+                color: AppColors.blackBackColor,
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  Future.delayed(const Duration(milliseconds: 15), () {
+                    showModalBottomSheet(
+                      backgroundColor: AppColors.transparent,
+                      barrierColor: AppColors.transamberorange,
+                      context: context,
+                      builder: (context) => Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 900,
+                        color: AppColors.transparent,
+                        child: const CounterAppManager(),
+                      ),
+                    );
+                  });
+                },
+                child: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                  size: 20,
+                ),
               ),
             ),
           ],
