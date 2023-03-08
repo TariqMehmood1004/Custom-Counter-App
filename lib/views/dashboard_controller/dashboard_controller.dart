@@ -69,7 +69,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     width: 20,
                     height: 20,
                     color: AppColors.light,
-                    image: const AssetImage('images/docs3.png'),
+                    image: const AssetImage('images/docs.png'),
                   ),
                   // Text(
                   //   'Documentation?',
