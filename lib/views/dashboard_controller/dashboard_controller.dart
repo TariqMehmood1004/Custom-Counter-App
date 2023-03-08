@@ -15,13 +15,13 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+  //variables declarations
   int increment = 0;
   int increment2 = 0;
   int decrement = 0;
   int temp = 0;
   int resetTemp = 0;
   int saves = 0;
-
   int addNumber = 0;
   bool isAddPress = false;
 
@@ -65,10 +65,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     );
                   },
-                  child: Text(
-                    'Documentation?',
-                    style: TextStyle(color: AppColors.darkopacity, fontSize: 8),
+                  child: const Icon(
+                    Icons.folder,
+                    size: 20,
                   ),
+                  // Text(
+                  //   'Documentation?',
+                  //   style: TextStyle(color: AppColors.darkopacity, fontSize: 8),
+                  // ),
                 ),
               ],
             ),
