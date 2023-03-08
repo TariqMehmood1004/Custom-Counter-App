@@ -146,8 +146,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   });
                 },
                 heroTag: "minus",
-                backgroundColor: AppColors.white,
-                foregroundColor: AppColors.amberorange,
+                backgroundColor: AppColors.transamberorange,
+                foregroundColor: AppColors.white,
                 child: const Text(
                   "-",
                   style: TextStyle(fontSize: 35),
@@ -157,7 +157,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: FloatingActionButton(
-                heroTag: "add",
                 onPressed: () {
                   setState(() {
                     // n++;
@@ -168,8 +167,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     showSnackBar(msg: "Incrementation");
                   });
                 },
-                backgroundColor: AppColors.white,
-                foregroundColor: AppColors.amberorange,
+                heroTag: "add",
+                backgroundColor: AppColors.transamberorange,
+                foregroundColor: AppColors.white,
                 child: const Icon(Icons.add),
               ),
             ),
@@ -188,8 +188,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   });
                 },
                 heroTag: "Reset",
-                backgroundColor: AppColors.white,
-                foregroundColor: AppColors.amberorange,
+                backgroundColor: AppColors.transamberorange,
+                foregroundColor: AppColors.white,
                 child: const Icon(Icons.refresh),
               ),
             ),
@@ -205,7 +205,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Future.delayed(const Duration(milliseconds: 15), () {
                     showModalBottomSheet(
                       backgroundColor: AppColors.transparent,
-                      barrierColor: AppColors.transamberorange,
+                      barrierColor: AppColors.amberorange,
                       context: context,
                       builder: (context) => Container(
                         width: MediaQuery.of(context).size.width,

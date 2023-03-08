@@ -13,9 +13,13 @@ class AppColors {
 
   static Color vivacious = const Color(0xfffca230);
 
+  static Color vivacious2 = const Color(0xFFF6A740);
+
   static Color mimipink = const Color(0xffffdae9);
   static Color shyiris = const Color(0xfff0efee);
   static Color amberorange = const Color(0xffffbf00);
+
+  static Color amberorange2 = const Color.fromARGB(255, 255, 145, 0);
 
   static Color transamberorange = const Color.fromARGB(221, 241, 194, 52);
 
