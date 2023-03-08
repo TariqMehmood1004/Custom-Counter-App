@@ -65,9 +65,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     );
                   },
-                  child: const Icon(
-                    Icons.folder,
-                    size: 20,
+                  child: Image(
+                    width: 20,
+                    height: 20,
+                    color: AppColors.light,
+                    image: const AssetImage('images/docs3.png'),
                   ),
                   // Text(
                   //   'Documentation?',
