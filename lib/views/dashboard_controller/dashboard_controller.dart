@@ -65,11 +65,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     );
                   },
-                  child: Image(
+                  child: const Image(
                     width: 20,
                     height: 20,
-                    color: AppColors.light,
-                    image: const AssetImage('images/docs.png'),
+                    // color: AppColors.transparent,
+                    image: AssetImage('images/docs2.png'),
                   ),
                   // Text(
                   //   'Documentation?',
