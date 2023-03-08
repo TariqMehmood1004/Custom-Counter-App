@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:list_view_project/views/colors/colors_controller.dart';
 import 'package:list_view_project/views/second_controller/second_controller.dart';
