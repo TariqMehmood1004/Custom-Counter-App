@@ -37,6 +37,8 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   final List<int> _counters = [0];
 
+  bool isHover = false;
+
   void showSnackBar(String msg) {
     final snackBar = SnackBar(
       backgroundColor: AppColors.vivacious,
