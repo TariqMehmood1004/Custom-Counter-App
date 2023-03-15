@@ -1,4 +1,4 @@
-<table>
+<table style="border: none;">
 <tr>
   <th>Screen 1</th>
   <th>Screen 2</th>
