@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+/*
+  APPCOLORS
+    # used for maintain all the graphic UI colors by using this class.
+*/
+
 class AppColors {
   static Color darkopacity = const Color(0xff0f1315);
   static Color darkopacity2 = const Color(0xff8f9294);

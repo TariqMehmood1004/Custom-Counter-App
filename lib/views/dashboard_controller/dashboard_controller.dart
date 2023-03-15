@@ -4,6 +4,11 @@ import 'package:list_view_project/views/colors/colors_controller.dart';
 import 'package:list_view_project/views/second_controller/second_controller.dart';
 import 'package:list_view_project/widgets/counter_controller.dart';
 
+/*
+  DASHBOARD Widget
+  # it's constructor required the title of dashboard as a parameter.
+*/
+
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key, required this.title});
 
@@ -14,7 +19,10 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  //variables declarations
+  /*
+    LOCAL VARIABLES
+      # maintain the whole functioanlies of incrementation, decrementation as well.
+  */
   int increment = 0;
   int increment2 = 0;
   int decrement = 0;
@@ -24,6 +32,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int addNumber = 0;
   bool isAddPress = false;
 
+  /*
+    # user-defined string type method; showSnackBar();
+    # get the inputs from the user as a string;
+      that input will put the message as a form of snackbar poppup.
+  */
   void showSnackBar({String msg = "message"}) {
     final snackBar = SnackBar(
       backgroundColor: AppColors.vivacious,
@@ -44,7 +57,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       appBar: AppBar(
         // toolbarHeight: 20,
-        elevation: 0,
+        elevation: 0, // used for transparent/ remove bottom shadow.
         backgroundColor: AppColors.amberorange,
         // backgroundColor: AppColors.blackBackColor,
         title: SizedBox(
@@ -54,12 +67,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
               children: [
                 TextButton(
                   onPressed: () {
+                    /*
+                      showModalBottomSheet() widget for clicking of doc icon/img
+                      to show the image of documentation
+                      # get two properties:
+                        1.  context: from parent
+                        2.  builder: returns the image of documentation
+                    */
                     showModalBottomSheet(
                       backgroundColor: AppColors.transparent,
                       barrierColor: AppColors.transamberorange,
                       context: context,
                       builder: (context) => const Image(
-                        // height: 200,
+                        // showing the documentation of class task.
                         image: AssetImage('images/task.png'),
                       ),
                     );
@@ -70,10 +90,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     // color: AppColors.transparent,
                     image: AssetImage('images/docs2.png'),
                   ),
-                  // Text(
-                  //   'Documentation?',
-                  //   style: TextStyle(color: AppColors.darkopacity, fontSize: 8),
-                  // ),
                 ),
               ],
             ),
@@ -96,6 +112,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   //incremetation container
                   Padding(
                     padding: const EdgeInsets.all(8.0),
+                    /*
+                      CounterWidgetController() user-defined widget 
+                      => get number, textColor, fontSize, and fontWeight as a parameters
+                    */
                     child: CounterWidgetController(
                       number: temp,
                       textColor: AppColors.white,
@@ -129,6 +149,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              /*
+                # FloatingActionButton() reurns onPressed feature to decrementing the counter
+                  by one clicking
+              */
               child: FloatingActionButton(
                 onPressed: () {
                   setState(() {
@@ -156,6 +180,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              /*
+                # FloatingActionButton() reurns onPressed feature to incrementing the counter
+                  by one clicking
+              */
               child: FloatingActionButton(
                 onPressed: () {
                   setState(() {
@@ -175,6 +203,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              /*
+                # FloatingActionButton() reurns onPressed feature to reset the counter
+                  by one clicking
+              */
               child: FloatingActionButton(
                 onPressed: () {
                   // temp = 0;
@@ -201,6 +233,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 borderRadius: BorderRadius.circular(100),
               ),
               child: TextButton(
+                /*
+                # TextButton() reurns onPressed feature to poppup the showModalBottomSheet for counters
+                  by one clicking
+              */
                 onPressed: () {
                   Future.delayed(const Duration(milliseconds: 15), () {
                     showModalBottomSheet(

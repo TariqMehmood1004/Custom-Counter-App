@@ -13,6 +13,11 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  /*
+    # Timer() method get duration, and navigator.
+    Duration - After how many seconds the navigated page route opens.
+    MaterialPageRoute() method get contex to returns screen route.
+  */
   @override
   void initState() {
     super.initState();
@@ -20,6 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
+        //MaterialPageRoute() method get contex to returns screen route.
         MaterialPageRoute(
           builder: (context) =>
               const DashboardScreen(title: "Dashboard Screen"),
@@ -69,11 +75,17 @@ class _SplashScreenState extends State<SplashScreen> {
                     const SizedBox(
                       width: 22,
                       height: 22,
+                      /*
+                        CircularProgressIndicator() showing us loading the app.
+                      */
                       child: CircularProgressIndicator(
                         color: Colors.black,
                         strokeWidth: 2,
                       ),
                     ),
+                    /*
+                        SizedBox() widget showing us association of app.
+                      */
                     const SizedBox(
                       height: 8,
                     ),
