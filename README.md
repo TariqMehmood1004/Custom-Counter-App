@@ -15,6 +15,7 @@
 </table>
 </hr>
 <h1>Documentation</h1>
+<h2>1. Splash Screen Widget</h2>
 <em>
         <b>Timer() method get duration, and navigator</b>.<br>
         Duration - After how many seconds the navigated page route opens.<br>
