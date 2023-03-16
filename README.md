@@ -15,7 +15,17 @@
 </table>
 </hr>
 <h1>Documentation</h1>
-<pre>skld
-jkasdn
-akjsd
-kalsdm</pre>
+<pre>
+void initState() {
+super.initState();        
+Timer(const Duration(seconds: 3), () {
+Navigator.pushReplacement(
+context,
+//MaterialPageRoute() method get contex to returns screen route.
+MaterialPageRoute(
+builder: (context) =>
+const DashboardScreen(title: "Dashboard Screen"),
+),
+);
+});
+</pre>
