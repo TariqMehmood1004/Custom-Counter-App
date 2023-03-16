@@ -16,7 +16,7 @@
 </hr>
 <h1>Documentation</h1>
 <em>
-        # Timer() method get duration, and navigator.<br>
+        <b>Timer() method get duration, and navigator</b>.<br>
         Duration - After how many seconds the navigated page route opens.<br>
         MaterialPageRoute() method get contex to returns screen route.<br>
 </em>
