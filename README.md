@@ -1,3 +1,4 @@
+<h1>Output</h1>
 <table style="border: none;">
 <tr>
   <th>Screen 1</th>
