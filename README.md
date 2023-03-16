@@ -15,6 +15,11 @@
 </table>
 </hr>
 <h1>Documentation</h1>
+<em>
+        # Timer() method get duration, and navigator.
+        Duration - After how many seconds the navigated page route opens.
+        MaterialPageRoute() method get contex to returns screen route.
+</em>
 <pre>
 @override
         void initState() {
